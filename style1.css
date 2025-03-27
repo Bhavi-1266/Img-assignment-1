@@ -193,18 +193,39 @@ html {
 
 /* Hero section styling */
 .hero {
-    width: 99vw;
-    height: 120vh;
+    width: 100%;
+    height: 105vh;
     position: relative; 
+    background: url("C:\another driveeeeee\IMG\Assigment-1\images\video_thomson.mp4") no-repeat center center;
 }
+.fullscreen-video-bg {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  #bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    object-fit: cover;
+  }
 
 /* Hero background image */
-.hero > img {
+/* .hero > img {
     width: 99vw;
     height: 100vh;
-    z-index: -1; /* Places the background image behind other elements */
+    z-index: -1; 
     object-fit: cover; 
-}
+} */
+
 
 /* Hero heading text */
 .hero > h1 {
@@ -260,36 +281,41 @@ html {
     display: flex; /* Flexbox for layout */
     justify-content: center; /* Centers the boxes horizontally */
     align-items: center; /* Centers content vertically */
-    width: 100%;
-    position: absolute; /* Absolute positioning for overlap */
-    top: calc(100vh + 35px); /* Positions it halfway over the hero section */
+    position: relative; /* Absolute positioning for overlap */
+    top:0;
+    left:10%;
+    transform:translateY(-35%);
+    width: 80%;
+    
+    /* top: calc(100vh + 35px);  */
 }
 
 /* Individual stat box styling */
 .stat-box {
+    position: relative;
     display: flex; /* Flexbox for content inside each box */
     flex-direction: row; /* Aligns icon and text vertically */
     align-items: center; /* Centers content horizontally */
     justify-content: center; /* Centers content vertically */
-    gap:4rem;
+    gap:1rem;
     width: clamp(30rem, 25%, 35.75rem); /* Min: 300px, Max: 387.5px */
     height: clamp(25rem, 30vw, 30rem); /* Min: 250px, Max: 300px */
 }
 
 /* Stat box icons */
 .icon img {
-    width: 12rem; /* Uniform size for icons */
+    width: 10rem; /* Uniform size for icons */
 }
 
 /* Stat box main text */
 .text p {
-    font-size: 3.8rem; /* Main number size (e.g., "10300+") */
+    font-size: 3.2rem; /* Main number size (e.g., "10300+") */
     font-family: 'lato', sans-serif;
 }
 
 /* Stat box label text */
 .text span {
-    font-size: 3rem; /* Label size (e.g., "STUDENTS") */
+    font-size: 2.6rem; /* Label size (e.g., "STUDENTS") */
 }
 
 /* Blue background for stat boxes */
@@ -320,7 +346,7 @@ html {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 102.5%;
+    width: 100%;
     font-size: clamp(1.2rem, 3.3rem, 3.6rem); /* Fluid typography */
     border:0 none;
     padding:0;
@@ -336,15 +362,13 @@ html {
 
 .media-grid {
     display: grid;
+    width: 100%;
     /* 5 columns converted (px ÷ 10) */
-    grid-template-columns: 33rem 40rem 8rem 33rem 35rem;
-    /* 4 rows converted (px ÷ 10) */
-    grid-template-rows: 30rem 13rem 7rem 23rem;
-    gap: 1.5rem; /* 15px → 1.5rem */
-    width: 149rem; /* 1490px → 149rem */
+    grid-template-columns: 33fr 40fr 8fr 33fr 35fr;
+    grid-template-rows: 30fr 13fr 7fr 23fr;
+    gap: 1.5rem; 
     
     background: #f5f5f5;
-     /* Added responsive padding */
     
 }
 
@@ -360,6 +384,7 @@ html {
 }
 
 .media-grid img {
+    position: relative;
     width: 100%;
     height: 100%;
     object-fit: cover; /* Maintain aspect ratio */
@@ -408,8 +433,10 @@ html {
 
 
 .patent{
+    position: relative;
     width:80%;
-    left:50%;
+    left:10%;
+    
 }
 
 .patent-text{
@@ -417,10 +444,10 @@ html {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 102.5%;
+    width: 100%;
     font-size: clamp(1.2rem, 3.3rem, 3.6rem); /* Fluid typography */
     border:0 none;
-    padding:0;
+    padding-top:10rem;
 }
 .patent-text .view-all {
     font-size: clamp(1rem, 2.4vw, 2.9rem);
@@ -431,6 +458,7 @@ html {
 .patent-data{
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
     width: 100%;
@@ -438,7 +466,28 @@ html {
     border:0 none;
     padding:0;
     font-family: 'lato', sans-serif;
-    gap:5rem;
+    gap:4rem;
+}
+
+@media(max-width:900px) {
+    .patent-data{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        font-size: clamp(1.2rem, 3.3rem, 3.6rem); /* Fluid typography */
+        border:0 none;
+        padding:0;
+        font-family: 'lato', sans-serif;
+        gap:5rem;
+    }
+}
+
+
+.patent-data-element:nth-of-type(2){
+    max-width: 60vw;
 }
 
 .patent-data >div>h1{
@@ -450,6 +499,20 @@ html {
         font-size:clamp(0.5rem,1.8rem, 1.9rem);
         line-height: clamp(0.5rem,2.4rem, 2.4rem);
 }
+.patent-data >div>img{
+    height: auto;
+    width: auto;
+}
+.arrow{
+    height: auto;
+    width: auto;
+}
+
+
+
+
+
+
 
 .patent-data >div>div{
     display: flex;
@@ -594,6 +657,21 @@ html {
     margin: 0 auto; /* Center if flex-wrap creates extra space */;
 }
 
+.achivements_elemtents2 {
+    width: 100%;
+    max-width: 432px; /* Fixed typo from 4.32xrem */
+    height: auto; /* Maintain aspect ratio */
+    
+    object-fit: contain; /* Prevent distortion */
+    margin: 0 auto; /* Center if flex-wrap creates extra space */;
+}
+
+@media(max-width:1350px){
+    .achivements_elemtents2{
+        display:none;
+    }
+} 
+
 
 .event{
     background-color: #232323;
@@ -614,7 +692,7 @@ html {
 }
 
 .event .text{
-    font-size: clamp(1rem, 3.6rem, 3.6rem);
+    font-size: clamp(1rem, 3.2rem, 3.2rem);
     
 }
 .event .img-menu{
@@ -623,25 +701,28 @@ html {
     justify-content: space-between;
     align-items: center;
     
-    font-size: clamp(1.2rem, 3.3rem, 3.6rem); /* Fluid typography */
+    font-size: clamp(1.2rem, 3rem, 3.2rem); /* Fluid typography */
     border:0 none;
     padding:0;
     gap:2rem;
 }
 
 .event .img-menu img{
-    width: 100%;
-    height: 100%;
+    width: clamp(43.2rem, 0.8 * 100vw, 83.2rem);
+    height: clamp(15.6rem, 0.8 * 100vh, 45.6rem);
     object-fit: contain;
 }
 
 .event .img-menu .text{
-    gap:5rem;
+    transform: translateY(-10%);
+    gap:3rem;
     display:flex;
     flex-direction: column;
+    justify-content: flex-start;
     align-items: flex-start;
-    font-size: clamp(1rem, 2.1rem, 21rem);
+    font-size: clamp(1rem, 1.8rem, 2.1rem);
     font-weight: 100;
+    color:#c4bdbd;
 }
 
 .event .img-menu .text .textlink{
@@ -958,52 +1039,62 @@ html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #ffffff;
+    color: #d5d4d4;
 }
 
 .footer-data{
     line-height: 2.4rem;
     display: flex;
      
-    gap:7rem;   
+    gap:0rem;   
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    width: 100%;
-    font-size: clamp(1.8rem, 3.6rem, 3.6rem);
+    width: 80%;
+    font-size:clamp(1rem,2rem,2rem);
+    padding-bottom: 6rem;
 }
 .footer-data>div>img{
-    width: 235.8rem;
-    height:13.6rem;
+    width: 200.8rem;
+    height:10.6rem;
     border-radius: 0.5rem;
 }
 .footer-data .a{
     display: flex;
-    gap:5rem;
+    gap:7rem;
     padding:5rem;
 }
 .footer-data>div>h1{
-    font-size:clamp(1rem,2.4rem,2.4rem);
+    font-size:clamp(1rem,2rem,2rem);
     font-weight: 100;
     line-height: 2.4rem;
 }
-
+.footer-data>div>h3{
+    font-size:clamp(0.9rem, 1.8rem, 1.8rem);
+    font-weight: 100;
+    line-height: 2.4rem;
+}
+.footer-data>div>h3>img:nth-of-type(1){
+    width: 30.8rem;
+    height:10.6rem;
+}
 .footer-data>div>h2{
-    font-size:clamp(1rem,2rem,2rem);
+    font-size:clamp(0.3rem,1.3rem,1.3rem);
     font-weight: 100;
     line-height: 2.4rem;
 }
 
 .a>div>h1{
-    font-size:clamp(1rem,2.4rem,2.4rem);
+    word-break: nowrap;
+    font-size:clamp(1rem,2rem,2rem);
     font-weight: 100;
     line-height: 2.4rem;
 }
 
 .a>div>h2{
-    font-size:clamp(1rem,2rem,2rem);
+    font-size:clamp(0.3rem,1.6rem,1.6rem);
     font-weight: 100;
-    line-height: 2.4rem;
+    line-height: 3rem;
 }
 
 .footer-text{
@@ -1012,21 +1103,1324 @@ html {
     justify-content: space-between;
     align-items: center;
     width:80%;
-    color:#9b9797;
-    font-size: clamp(1.8rem, 2.8rem, 1.8rem);
+    color:#ffffff;
+    font-size: clamp(0.8rem, 1.2rem, 1.2rem);
 }
 
 .footer-text .a{
     display: flex;
     gap:5rem;
 }
-
+.footer-text .b{
+    display: flex;
+    gap:5rem;
+}
 .copyright{
     display: flex;
     justify-content: center;
     align-items: center;
     width:100%;
+    color:#ffffff;
+    background-color:#222222;
+    font-size: clamp(0.2rem, 1.5rem, 1.44rem);
+}
+
+
+/* make this in mobile mode now */
+
+
+.mobile-view{
+    display: none;
+}
+
+@media(max-width:1000px){
+    .pc-view{
+        display: none;
+    }
+    .mobile-view{
+        display:contents;
+    }
+
+    /* Base font size setting (1rem = 10px for easier calculations) */
+html {
+    font-size: 62.5%;
+    font-family: 'lato', sans-serif;
+}
+
+/* Global reset for margins, padding, and box model */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Main navigation bar styles */
+.navbar {
+    display: flex;
+    flex-direction: row; /* Stack items vertically on mobile */
+    align-items: center;
+    justify-content: space-between; /* Original layout */
+    padding: 0.2rem 1rem; /* Original padding */
+    height: 4.34rem; /* Fixed height */
+    font-family: 'Lato', sans-serif;
+    background-color: #3C3C3C;
+    border-bottom: 1px solid #FEBE10;
+    font-size: clamp(1.1rem, 2vw, 1.3rem); /* Fluid typography */
+    width: 100%;
+}
+
+/* Dropdown menu styles */
+.dropdown-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    background-color: #3C3C3C;
+    color: white;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    font-size: inherit;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown-menu:hover .dropdown-content {
+    display: block;
+}
+
+/* Tablet and larger screen adjustments for navbar */
+
+/* Left navigation links container */
+.nav-left {
+    display: flex;
+    justify-content: space-between;
+    gap: calc(2.5rem * 0.58);
+}
+
+/* Navigation link styles */
+.nav-link {
+    text-decoration: none;
+    color: white; /* White text */
+    font-weight: 500;
+    transition: color 0.2s ease;
+    font-size: clamp(1.2rem, 2.4vw, 2.4rem);
+}
+
+/* Navigation link hover effect */
+.nav-link:hover {
+    color: #FEBE10; /* Orange on hover */
+}
+
+/* Right navigation section (utility items) */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: calc(2.5rem * 0.58);
+}
+
+/* Accessibility buttons styling */
+.accessibility-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: calc(0.2rem * 0.58) calc(0.4rem * 0.58);
+    color: white; /* White text */
+    font-size: clamp(1.2rem, 2.4vw, 2.4rem);
+}
+
+/* Accessibility button hover effect */
+.accessibility-btn:hover {
+    color: #FEBE10; /* Orange on hover */
+}
+
+/* Language selector styling */
+.language-selector {
+    color: white; /* White text */
+    font-weight: bold;
+    margin-left: calc(0.5rem * 0.58);
+    font-size: clamp(1.2rem, 2.4vw, 2.4rem);
+}
+
+/* Search icon styling */
+.search-icon {
+    /* Flexible sizing */
+    width: clamp(24px, 2.5vw, 32px); /* Scales between 24-32px */
+    height: auto; /* Maintains aspect ratio */
+    font-size: clamp(1.2rem, 2.4vw, 2.4rem);
+    
+    /* Smooth hover effect */
+    transition: transform 0.2s ease;
+}
+
+/* Search icon hover effect */
+.search-icon:hover {
+    transform: scale(1.1); /* Subtle enlargement on hover */
+    opacity: 0.9;
+}
+
+/* Search icon container for better accessibility */
+.search-icon-container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: calc(0.5rem * 0.58); /* Clickable area */
+    cursor: pointer;
+}
+
+/* Mobile responsiveness adjustments */
+
+/* Header logo bar styles */
+
+
+
+.header-logo {
+    background-color: #222222;
+    color: white;
+    display: flex;
+    margin: auto;
+    padding: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Logo text elements */
+.header-logo-elements {
+    align-self: center;
+    font-size: clamp(0.7rem, 1.16rem, 1.74rem); 
+}
+
+/* Logo image styling */
+.header-logo-elements>img {
+    object-fit: contain;
+    width: clamp(1.74rem, 4.06rem, 4.3rem);
+    height: clamp(1.74rem, 3.48rem, 3.9rem);
+}
+
+/* Yellow accent line styling */
+.yellow-line {
+    position: absolute;
+    width: 80%;
+    height: 0px;
+    left: 10%;
+    border: 0.74625px solid #F8B300;
+}
+
+/* Main menu styling */
+.header-menu {
+    min-height: clamp(2.03rem, 2.9rem, 2.9rem); /* Mobile: 2.03rem, Ideal: 2.9rem, Max: 2.9rem */
+    height: auto;
+    align-items: center;
+    display: flex;
+    background-color: #222222;
+    color: white;
+    padding: 0.464rem 1.16%;
+    justify-content: center;
+    gap: clamp(0.58rem, 1.75vw, 2.32rem); /* Responsive gap */
+    flex-wrap: wrap;
+    width: 100%;
+    font-size: clamp(1.305rem, 1.75vw, 1.75rem); /* Fluid typography */
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase; /* Match the all-caps style */
+    letter-spacing: 0.05em; /* Improve readability */
+}
+
+/* Menu elements styling */
+.header-menu-elements {
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+/* Menu elements hover effect */
+.header-menu-elements:hover {
+    color: #FEBE10; /* Orange on hover */
+}
+
+.header2{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 0px 0px 0px;
+    gap: 10px;
+    background-color:#222222;
+}
+/* Navbar container */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #222222;
+    position: relative;
+    border: 0 none;
+  }
+  
+  /* Logo styling */
+  .logo {
+    font-size: 0.8rem;
+    font-weight: bold;
+    
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+  }
+  
+  /* Hide checkbox */
+  .hamburger-toggle {
+    position: absolute;
+    opacity: 0;
+    border: 0 none;
+  }
+  
+  /* Hamburger icon */
+  .hamburger {
+    display: none; /* Hidden on desktop */
+    cursor: pointer;
+    z-index: 100;
+    font-size: 1.5rem;
+  }
+  
+  .bar {
+    display: block;
+    width: 10.25px;
+    height: 0.75px;
+    margin: 2.5px auto;
+    transition: all 0.3s ease;
+    background-color: white;
+    border: 0 none;
+  }
+  
+  /* Navigation menu */
+  .nav-menu ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+  }
+  
+  .nav-menu li {
+    margin-left: 2rem;
+  }
+  
+  .nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+    font-family: 'Lato', sans-serif;
+  }
+  
+  .nav-menu a:hover {
+    color: #FEBE10;
+  }
+  
+  /* Mobile styles */
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block; /* Show hamburger */
+      font-size: 2rem;
+    }
+    
+    /* Menu styling */
+    .nav-menu {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 70%;
+      height: 100vh;
+      background-color: #222222;
+      padding-top: 5rem;
+      transition: all 0.5s ease;
+      z-index: 99;
+    }
+    
+    .nav-menu ul {
+      flex-direction: column;
+      padding: 0 2rem;
+    }
+    
+    .nav-menu li {
+      margin: 1.5rem 0;
+    }
+    
+    /* Transform hamburger into X */
+    #hamburger-toggle:checked ~ .hamburger .bar:nth-child(2) {
+      opacity: 0;
+    }
+    
+    #hamburger-toggle:checked ~ .hamburger .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    
+    #hamburger-toggle:checked ~ .hamburger .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    /* Show menu when checkbox is checked */
+    #hamburger-toggle:checked ~ .nav-menu {
+      left: 0;
+    }
+    
+    /* Dim the rest of the page */
+    #hamburger-toggle:checked ~ .overlay {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      z-index: 98;
+    }
+  }
+/* Hero section styling */
+.hero {
+    width: 100%;
+    height: 60vh;
+    position: relative; 
+}
+
+
+/* Hero background image */
+ .hero > img {
+    width: 100%;
+    height: 100%;
+    z-index: -1; 
+    object-fit: cover;
+} 
+
+
+/* Hero heading text */
+.hero > h1 {
+    position: absolute; 
+    top: 20%;   
+    left: 10%; 
+    font-family: 'Lato', sans-serif;
+    font-style: normal; 
+    font-weight: 800;   
+    font-size: clamp(2.5rem, 5vw, 6rem);   
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Social media icons container */
+.socials {
+    position: absolute;
+    right: 1.5rem; /* Changed from px to rem */
+    top: 50%; /* Changed from fixed % to center better */
+    transform: translateY(-50%); /* Perfect vertical centering */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Replaces margin-bottom */
+    z-index: 10; /* Ensures visibility over hero image */
+}
+
+/* Social media icons */
+.socials img {
+    width: clamp(2.5rem, 3.5vw, 3.8rem); /* Fluid sizing */
+    height: auto; /* Maintains aspect ratio */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+/* Social media icons hover effect */
+.socials img:hover {
+    transform: scale(1.1); /* Subtle hover animation */
+}
+
+/* Tablet adjustments for social icons */
+@media (max-width: 1024px) {
+    .socials {
+        right: 1rem;
+    }
+}
+
+/* Statistics section styling */
+.no_of_people2 {
+    flex-wrap: wrap;
+    margin-left: 5%;
+    display: flex; /* Flexbox for layout */
+    justify-content: center; /* Centers the boxes horizontally */
+    align-items: center; /* Centers content vertically */
+    width: 90%;
+    position: relative; /* Absolute positioning for overlap */
+    top:0;
+    transform:translateY(-35%);
+    /* top: calc(100vh + 35px);  */
+}
+
+/* Individual stat box styling */
+.stat-box2 {
+    position: relative;
+    display: flex; /* Flexbox for content inside each box */
+    flex-direction: row; /* Aligns icon and text vertically */
+    align-items: center; /* Centers content horizontally */
+    justify-content: space-around; 
+    
+    width: clamp(10rem, 50%, 17rem); /* Min: 300px, Max: 325px */
+    height: clamp(8rem, 12rem, 13rem); /* Min: 250px, Max: 262px */
+    }
+
+/* Stat box icons */
+.icon img {
+    width: clamp(3.5rem, 5.1rem, 5.1rem);
+    height: clamp(2rem, 3rem, 3rem);
+    object-fit: contain;
+}
+
+/* Stat box main text */
+.text  > p {
+    margin:-35%;
+    font-size: clamp(1rem, 1.7rem, 1.8rem); /* Main number sizeddddd (e.g., "10300+") */
+    font-family: 'lato', sans-serif;
+}
+
+/* Stat box label text */
+.text >p>span {
+    font-size: clamp(0.8rem, 1.2rem, 1.3rem); /* Label size (e.g., "STUDENTS") */
+}
+
+/* Blue background for stat boxes */
+.yellow-bg {
+    background-color:#F8B300; /* Light blue background (matches image) */
+}
+
+/* Black background for stat boxes */
+.black-bg {
+    background-color: #202020; /* Black background (matches image) */
+    color: white;
+}
+
+
+/*recent serach*/
+
+.recent-search {
+
+    position: relative;
+    width: 90%;
+    margin: 0 auto; /* Centers the div horizontally */
+    height: auto;
+}
+
+
+
+.recent-search-text {
+    transform: translateY(-35%);
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: clamp(1.2rem, 1.6rem, 1.6rem); /* Fluid typography */
+    border:0 none;
+    padding:0;
+}
+.recent-search-text .view-all {
+    font-size: clamp(1rem, 1.4rem, 1.4rem);
+    margin-left: auto; /* Pushes it to the far right */
+    cursor: pointer;
+}
+
+
+.media-flex{
+    transform: translateY();
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border:0 none;
+    padding:0;
+    font-family: 'lato', sans-serif;
+    gap:0.6rem;
+}
+
+.media-flex .flex1{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 49%;
+    border:0 none;
+    padding:0;
+}
+
+.media-flex .flex2{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 49%;
+    border:0 none;
+    padding:0;
+}
+
+.media-flex .flex2 img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.media-flex .flex1 img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.patent2{
+    
+    position: relative;
+    width:90%;
+    margin:5%;
+    
+   
+}
+
+.patent2-text{
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: clamp(1.2rem, 1.6rem, 1.6rem); /* Fluid typography */
+    border:0 none;
+ 
+}
+.patent2-text-view-all {
+    font-size: clamp(1rem, 1.4rem, 1.4rem);
+   
+    cursor: pointer;
+}
+
+.patent2-data{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    border:0 none;
+    padding:0;
+    font-family: 'lato', sans-serif;
+    gap:0.3rem;
+}
+
+
+.patent2-data-element2{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 27rem;
+}
+.patent2-data-element{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    /* width: 26rem; */
+}
+.patent2-data-element2 >div>img{
+    object-fit: contain;
+    width: 26rem;
+}
+
+.patent2-data >div>div>h1{
+    font-size: clamp(1rem,1.2rem, 1.2rem);
+    cursor: pointer;
+}
+
+.patent2-data >div>div>p{
+    font-size: clamp(1rem,1.2rem, 1.2rem);
+    line-height: clamp(0.5rem,2.4rem, 2.4rem);
+}
+.arrow{
+    height: 1.4rem;
+    width: 0.9rem;
+}
+.patent-data div>div>div{
+    display: flex;
+    align-self: flex-start;
+    justify-self: space-between;
+    gap:0.4rem;
+    border:0 none;
+    
+}
+.patent-data div>div>div>div{
+    font-size:1rem;
+    padding:1rem;
+    display: inline;
+    border:#202020 1px solid;
+
+}
+
+
+.ranks {
+    /* margin-left:0; */
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+    background-color: #f4f4f4; /* This is your background color */
+}
+
+.list_ranks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch; /* Changed from center to stretch */
+    width: 80%;
+    font-size: clamp(1.2rem, 3.3rem, 3.6rem);
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+
+}
+
+.ranks_elements {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1; /* Added to make elements grow equally */
+    min-width: 25rem; /* Changed from max-width to min-width */
+    padding: 2rem 0; /* Added vertical padding */
+    font-size: clamp(1.2rem, 3.3rem, 3.6rem);
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    border-bottom: 1px solid #000000;
+    background-color: inherit; /* Ensures color consistency */
+    border-right: 0 none;
+}
+
+/* Remove border from last element */
+.ranks_elements:last-child {
+    border-bottom: none;
+}
+
+.ranks_img1 {
+    width: 10rem;
+    height: 10rem;
+    margin-bottom: 1.5rem;
+}
+
+.ranks_img1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.ranks_text {
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.rank_text2 {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: bold;
+    color:#232323;  
+    text-shadow: 
+    0.25rem 0.25rem 0 #FEBE10,
+    0.25rem 0.25rem 0 #FEBE10;
+}
+
+.ranks>div>h1{
+    align-self: center;
+    font-size: clamp(1rem,1.8rem, 1.8rem);
+}
+.ranks>div>{
+    width: 100%;
+}
+
+
+
+.achivements {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F8B300;
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin: 0 auto; /* Centers the div horizontally */
+}
+
+.achivements_text {
+    width: 90%;
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+   
+    font-size: clamp(1.2rem, 1.6rem, 1.6rem); /* Fluid typography */
+    border:0 none;
+    font-weight: 500;
+}
+.achivements_text .view-all {
+    font-size: clamp(1rem, 1.4rem, 1.4rem);
+   
+    cursor: pointer;
+}
+
+.achivements_data {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    font-size: clamp(1.2rem, 3.3rem, 3.6rem); /* Fluid typography */
+    border:0 none;
+    padding:0;
+    gap:0.3rem;
+}
+
+.achivements_elemtents {
+    width: 100%;
+    max-width: 432px; /* Fixed typo from 4.32xrem */
+    height: auto; /* Maintain aspect ratio */
+    
+    object-fit: contain; /* Prevent distortion */
+    margin: 0 auto; /* Center if flex-wrap creates extra space */;
+}
+.arrow2{
+    width: 1.9rem;
+    height: 2.4rem;
+}
+
+.achivements_elemtents:nth-of-type(2) > img{
+    width: 27rem;
+    object-fit: contain;
+}
+
+
+.events{
+    background-color: #232323;
+    width:100%;
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    flex-direction: column;
+    font-size: clamp(1.2rem, 3.3rem, 3.6rem); /* Fluid typography */
+    margin: 0rem;
+    color:#FFFFFF;
+    border-radius: 0%;
+}
+
+.events-text{
+    width: 90%;
+    margin:5%;
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: clamp(1.2rem, 1.6rem, 1.6rem); /* Fluid typography */
+    border:0 none;
+    
+}
+.events-text .view-all{
+    font-size: clamp(1rem, 1.4rem, 1.4rem);
+
+    cursor: pointer;
+}
+
+.events-img-menu{
+    width: 90%;
+    margin:5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: clamp(1rem, 1rem, 1rem); /* Fluid typography */
+    border:0 none;
+    padding:0;
+    
+}
+
+.events-img-menu img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.events-img-menu .text{
+    font-size: clamp(1rem, 1rem, 1rem);
+    gap:3rem;
+    display:flex;
+    padding-top: 2rem;;
+    flex-direction: row;
+    align-items: flex-start;
+    font-weight: 100;
+}
+.events-img-menu .text div{
+    padding:0.41rem;}
+.events-img-menu .text .textlink{
+    background-color: #FEBE10;
+    padding:0.41rem;
+    border-radius: 0.4rem;
+    color:#202020
+}
+.events .text2{
+    width: 90%;
+    margin:5%;
+    line-height: 1.8rem;
+    font-size: 1.2rem;
+    padding-bottom: 3rem;
+}
+
+
+.milestone{
+    width:90%;
+    margin:5%;
+}
+
+.milestone-text{
+    width: 90%;
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+   
+    font-size: clamp(1.2rem, 1.6rem, 1.6rem); /* Fluid typography */
+    border:0 none;
+    font-weight: 500;
+}
+.milestone-text .view-all {
+    font-size: clamp(1rem, 1.4rem, 1.4rem);
+   
+    cursor: pointer;
+}
+
+
+.milestone-menu {
+    color:#23232399;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    gap: 0.2rem;
+}
+
+.milestone-menu-elements {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.milestone-menu-elements > div {
+    font-size: clamp(1rem,1rem,1rem);
+    padding: 0.51rem;
+    display: inline;
+}
+
+ 
+
+
+.milestone-menu-elements > div:hover {
+    color: #fcfcfc;
+    background-color: #343330;
+    border-radius: 0.51rem;
+}
+
+
+
+
+
+.milestone-data{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: clamp(1.2rem, 3.3rem, 3.6rem); /* Fluid typography */
+    border:0 none;
+    padding:0;
+    font-family: 'lato', sans-serif;
+    gap:0.5rem;
+}
+
+.milestone-data-element{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 27rem;
+    border: 0 none;
+    color:#232323CC;
+}
+.milestone-data-element>div>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.milestone-data>div>div>h1{
+    font-size: clamp(1rem,1.2rem,1.2rem);
+    cursor: pointer;
+    font-weight: 400;
+}
+.milestone-data>div>div>br{
+    
+    margin-top: 0.2;
+    
+}
+.milestone-data >div>div>h1>b{
+    font-size: clamp(1.4rem,1.6rem, 1rem);
+    font-weight: 700;
+}
+
+.milestone-data >div>div>p{
+    font-size: clamp(1rem,1.2rem,1.2rem);
+        line-height: clamp(1rem,1.2rem,1.2rem);
+}
+
+.milestone-data >div>div{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap:0.2rem;
+    border: 0 none;
+}
+.milestone-data >div>div>div>div{
+    font-size:0.9rem;
+    padding:0.8rem;
+    display: inline;
+    border:#202020 1px solid;
+
+}
+.milestone-data >div>div>div{
+   
+    border:0 none;
+
+}
+
+
+
+
+
+
+
+
+.notices-board {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 0 none;
+    padding: 2rem 0 2rem 0;
+    gap: 1rem;
+}
+
+.notices-text {
+    
+        width: 90%;
+        font-family: 'Lato', sans-serif;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        font-size: clamp(1.2rem, 1.6rem, 1.6rem); /* Fluid typography */
+        border:0 none;
+        font-weight: 500; 
+}
+
+
+.notices-board-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: clamp(1.2rem, 1.6rem, 1.6rem); /* Fluid typography */
+    border: 0 none;
+    padding: 0;
+}
+
+.notices-board-text .view-all {
+    font-size: clamp(1rem, 1.4rem, 1.4rem);
+    cursor: pointer;
+    white-space: nowrap; /* Prevents wrapping */
+}
+.notices-data {
+    background-color: #FACB5559;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    font-size: clamp(0.9rem, 0.9rem, 0.9rem); /* Fluid typography */
+    border: 0 none;
+    padding: 3rem 3rem 3rem 1rem; /* Added padding */
+    gap: 2rem;
+    border-radius: 1rem; /* Rounded corners */
+}
+
+.notices-data-element {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%; /* Only cover the middle 90% */
+    font-size: clamp(0.9rem, 0.9rem, 0.9rem); /* Fluid typography */
+    border: 0 none;
+    padding: 0;
+    font-family: 'lato', sans-serif;
+    gap: 1rem; /* Increased space between elements */
+}
+
+.notices-data-element-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: clamp(0.9rem, 0.9rem, 0.9rem); /* Fluid typography */
+    border: 0 none;
+    padding: 0;
+}
+
+.notices-data-element-body {
+    width: 100%;
+    font-size: clamp(0.9rem, 0.9rem, 0.9rem); /* Fluid typography */
+    border: 0 none;
+    padding: 0;
+}
+
+
+
+.UPCOMINGs-EVENTS {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: clamp(0.58rem, 1.272rem, 1.272rem); /* Fluid typography */
+    border: 0 none;
+
+}
+
+.upcomings-events-text {
+    width: 90%;
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size:  clamp(1.2rem, 1.6rem, 1.6rem); /* Fluid typography */
+    border:0 none;
+    font-weight: 500;
+}
+.upcomings-events-board-text{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size:  clamp(1.2rem, 1.6rem, 1.6rem); /* Fluid typography */
+    border: 0 none;
+    padding: 0;
+}
+.upcomings-events-text .view-all {
+    font-size:  clamp(1.2rem, 1.4rem, 1.4rem);
+    cursor: pointer;
+    white-space: nowrap; /* Prevents wrapping */
+}
+.upcomings-events-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start; /* Aligns content like noticeboard classes */
+    width: 90%; /* Only cover the middle 90% */
+    font-size: clamp(1.04rem, 2.092rem, 2.092rem); /* Fluid typography */
+    border: 0 none;
+    padding: 0;
+    font-family: 'lato', sans-serif;
+    gap: 1.74rem; /* Increased space between elements */
+    color:#202020;
+    
+}
+
+.upcomings-events-data-element {
+    display: flex;
+    align-items: flex-start; /* Aligns content like noticeboard classes */
+    gap: 1.16rem;
+    padding-bottom: 1.74rem;
+    border-bottom: 2px solid#FEBE10;
+}
+
+.upcomings-events-data-element-date {
+    font-size: clamp(0.7rem, 0.936rem, 0.936rem);
+    background-color: rgb(252, 251, 251); /* #80808045 equivalent */
+    padding: 0.46rem 0.87rem;
+    border-radius: 0.5rem;
+    border-color: #000000;
+    min-width: 4.64rem;
+    text-align: center;
+    font-weight: 200;
+}
+.upcomings-events-data-element-date>h1{
+    font-size: clamp(0.7rem, 2.092rem, 2.092rem);
+}
+.upcomings-events-data-element-date>h2{
+    font-size: clamp(0.58rem, 1.16rem, 1.16rem);
+}
+.upcomings-events-data-element-body>h1{
+    font-weight: 200;
+    font-size: clamp(0.58rem, 1.392rem, 1.392rem);
+}
+
+.upcomings-events-data-element-body>p{
+    font-weight: 200;
+    font-size: clamp(0.29rem, 1.16rem, 1.16rem);
+}
+.upcomings-events-data-element-body {
+    flex: 1;
+}
+
+.footer{
+    
+    width:100%;
+    background-color:#000000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+
+.footer-data{
+    line-height: 1.392rem;
+    display: flex;
+     
+    gap:4.06rem;   
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    font-size: clamp(1.044rem, 2.094rem, 2.094rem);
+}
+.footer-data>div>img{
+    
+    width: 7.118rem;
+    height:7.88rem;
+    border-radius: 0.5rem;
+}
+.footer-data .a{
+    display: flex;
+    flex-direction: column;
+    gap:2.9rem;
+    padding:2.9rem;
+}
+.footer-data>div>h1{
+    font-size:clamp(0.58rem,1.16rem,1.16rem);
+    font-weight: 100;
+    line-height: 1.392rem;
+}
+.footer-data>div>h1>img{
+    left:50%;
+    width: 25.118rem;
+    height:7.88rem;
+    border-radius: 0.5rem;
+}
+.footer-data>div>img{
+    width: 1.0rem;
+    height:1.2rem;
+    border-radius: 0.5rem;
+}
+.footer-data>div>h2{
+    font-size:clamp(0.58rem,1.044rem,1.044rem);
+    font-weight: 100;
+    line-height: 1.392rem;
+}
+
+.a>div>h1{
+    font-size:clamp(0.58rem,1.16rem,1.16rem);
+    font-weight: 100;
+    line-height: 1.392rem;
+}
+
+.a>div>h2{
+    font-size:clamp(0.58rem,1.044rem,1.044rem);
+    font-weight: 100;
+    line-height: 1.392rem;
+}
+
+.footer-text{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width:46.4%;
+    color:#9b9797;
+    font-size: clamp(1.044rem, 1.638rem, 1.044rem);
+}
+
+.footer-text .a{
+    display: flex;
+    gap:2.9rem;
+}
+
+.copyright{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:100%;
     color:#9b9797;
     background-color: #000000;
-    font-size: clamp(1.8rem, 2.8rem, 1.8rem);
+    font-size: clamp(1.044rem, 1.638rem, 1.044rem);
+}
+
+
+
+
+
+
+
+
+
+
+
+
 }
