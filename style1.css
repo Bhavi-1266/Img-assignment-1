@@ -548,6 +548,7 @@ html {
 .list_ranks {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: stretch; /* Changed from center to stretch */
     width: 80%;
@@ -562,6 +563,7 @@ html {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
     flex: 1; /* Added to make elements grow equally */
     min-width: 25rem; /* Changed from max-width to min-width */
@@ -579,14 +581,14 @@ html {
 }
 
 .ranks_img1 {
-    width: 11rem;
-    height: 11rem;
+    width: 25%;
+    height: 25%;
     margin-bottom: 1.5rem;
 }
 
 .ranks_img1 img {
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
     object-fit: contain;
 }
 
@@ -1121,7 +1123,8 @@ html {
 }
 .footer-data .a{
     display: flex;
-    gap:7rem;
+    gap:5rem;
+    flex-wrap: wrap;
     padding:5rem;
 }
 .footer-data>div>h1{
@@ -1204,7 +1207,7 @@ html {
 }
 
 
-@media (max-width: 1000px){
+@media (max-width: 700px){
     .pc-view{
         display: none;
     }
@@ -1894,7 +1897,8 @@ html {
     justify-content: center;
     align-items: center;
     flex: 1; /* Added to make elements grow equally */
-    min-width: 25rem; /* Changed from max-width to min-width */
+    min-width: 25rem;
+    min-height: 30rem; /* Changed from max-width to min-width */
     padding: 2rem 0; /* Added vertical padding */
     font-size: clamp(1.2rem, 3.3rem, 3.6rem);
     font-family: 'Lato', sans-serif;
